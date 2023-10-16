@@ -22,6 +22,8 @@ FILES	= ft_isalpha.c \
 			ft_calloc.c \
 			ft_strdup.c \
 			ft_strjoin.c \
+			ft_itoa.c \
+			ft_strmapi.c \
 
 CC	= gcc
 

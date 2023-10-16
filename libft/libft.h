@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:28:27 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/16 15:38:55 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:52:04 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stddef.h>
 
 int	ft_isalpha(int i);
-int	ft_isdigit(char a);
+int	ft_isdigit(int a);
 int	ft_isalnum(char a);
 int	ft_isascii(int i);
 int	ft_isprint(char a);
@@ -40,5 +40,7 @@ char	*ft_strdup(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strjoin(const char *str1, const char *str2);
+char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

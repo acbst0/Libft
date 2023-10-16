@@ -6,65 +6,60 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:18:22 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/16 15:15:37 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:09:53 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numlen(unsigned int n)
+static char	*ft_char(char *s, unsigned int number, long int len)
 {
-	int	a;
-	int b;
-
-	a = 1;
-	b = 10;
-	while ((n % b) >= 1)
+	while (number > 0)
 	{
-		b = b * 10;
-		a++;
+		s[len--] = 48 + (number % 10);
+		number = number / 10;
 	}
-	return (a);
+	return (s);
 }
 
-char	*ft_turnit(int num, int sz)
+static long int	ft_len(int n)
 {
-	int	a;
-	int	b;
-	char	*ress;
+	int	len;
 
-	a = 0;
-	b = 10;
-	if (num < 0)
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		ress[a] = '-';
-		a++;
-		sz++;
+		len++;
+		n = n / 10;
 	}
-	while (a < sz)
-	{
-		ress[sz - a - 1] = (num % b) + 48;
-		a++;
-		b *= 10;
-	}
-	return (ress);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int	size;
+	char				*s;
+	long int			len;
+	unsigned int		number;
+	int					sign;
 
-	size = ft_numlen((unsigned int)n);
+	sign = 1;
+	len = ft_len(n);
+	s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(s))
+		return (NULL);
+	s[len--] = '\0';
+	if (n == 0)
+		s[0] = '0';
 	if (n < 0)
 	{
-		res = (char *)malloc(sizeof(char) * size + 2);
-		res = ft_turnit(n, size);
+		sign *= -1;
+		number = n * -1;
+		s[0] = '-';
 	}
 	else
-	{
-		res = (char *)malloc(sizeof(char) * size + 1);
-		res = ft_turnit(n, size);
-	}
-	return (res);
+		number = n;
+	s = ft_char(s, number, len);
+	return (s);
 }
