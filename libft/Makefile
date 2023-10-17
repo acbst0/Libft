@@ -24,6 +24,10 @@ FILES	= ft_isalpha.c \
 			ft_strjoin.c \
 			ft_itoa.c \
 			ft_strmapi.c \
+			ft_substr.c \
+			ft_split.c \
+			ft_putchar_fd.c \
+			ft_putnbr_fd.c \
 
 CC	= gcc
 

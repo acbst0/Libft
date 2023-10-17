@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:02:01 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/17 09:47:26 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:38:28 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	ft_len(const char *s, char c)
 {
 	size_t	a;
-	
+
 	a = 0;
 	while (s[a])
 	{
@@ -33,9 +33,9 @@ static size_t	ft_len(const char *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t  a;
-	size_t  b;
-	char    **p;
+	size_t	a;
+	size_t	b;
+	char	**p;
 
 	if (!s)
 		return (0);
@@ -50,7 +50,7 @@ char	**ft_split(char const *s, char c)
 			a = 0;
 			while (s[a] && s[a] != c && a++)
 				s++;
-			p[b++] = ft_substr(s - len, 0, len);
+			p[b++] = ft_substr(s - a, 0, a);
 		}
 		else
 			s++;
