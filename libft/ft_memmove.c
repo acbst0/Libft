@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 12:13:38 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/13 12:14:09 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/17 09:32:28 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *d, const void *s, size_t a)
 {
 	size_t	b;
 
+	if (!d && !s)
+		return (0);
 	if (s < d)
 	{
 		b = a;

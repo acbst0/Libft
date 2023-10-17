@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:28:27 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/16 17:52:04 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:33:10 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 # include <stdio.h>
 # include <stddef.h>
 
-int	ft_isalpha(int i);
-int	ft_isdigit(int a);
-int	ft_isalnum(char a);
-int	ft_isascii(int i);
-int	ft_isprint(char a);
-int	ft_strlen(const char *a);
-int	ft_toupper(int c);
-int	ft_tolower(int c);
-int	ft_strncmp(const char *str1, const char *str2, size_t n);
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
-int	ft_atoi(const char *str);
+int		ft_isalpha(int i);
+int		ft_isdigit(int a);
+int		ft_isalnum(char a);
+int		ft_isascii(int i);
+int		ft_isprint(int a);
+int		ft_strlen(const char *a);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_strncmp(const char *str1, const char *str2, size_t n);
+int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
+int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 void	*ft_memset(void *str, int x, size_t a);
@@ -42,5 +42,6 @@ char	*ft_strrchr(const char *str, int c);
 char	*ft_strjoin(const char *str1, const char *str2);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	**ft_split(char const *s, char c);
 
 #endif
