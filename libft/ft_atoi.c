@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:44:00 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/18 10:31:10 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:41:02 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int	ft_atoi(const char *str)
 	result = 0;
 	flag = 1;
 	a = ft_useless(str);
-	if (str[a] == '-')
+	if (str[a] == '-' || str[a] == '+')
 	{
-		flag = -1;
+		if (str[a] == '-')
+			flag = -1;
 		a++;
 	}
 	while (str[a] <= '9' && str[a] >= '0')

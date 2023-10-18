@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abostano <abostano@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:02:01 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/17 13:38:28 by abostano         ###   ########.fr       */
+/*   Created: 2023/10/18 17:05:11 by abostano          #+#    #+#             */
+/*   Updated: 2023/10/18 17:05:54 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
