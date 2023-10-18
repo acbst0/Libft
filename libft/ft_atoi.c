@@ -6,35 +6,42 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 14:44:00 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/16 10:38:02 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/18 10:31:10 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_useless(const char *s)
+{
+	int	a;
+
+	a = 0;
+	while ((s[a] <= 13 && s[a] >= 9) || s[a] == 32)
+	{
+		a++;
+	}
+	return (a);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
+	int					a;
+	int					flag;
 	unsigned long int	result;
 
-	i = 0;
-	sign = 1;
 	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
+	flag = 1;
+	a = ft_useless(str);
+	if (str[a] == '-')
 	{
-		sign = -1;
-		i++;
+		flag = -1;
+		a++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (ft_isdigit(str[i]))
+	while (str[a] <= '9' && str[a] >= '0')
 	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
+		result = result * 10 + (str[a] - 48);
+		a++;
 	}
-	return (result * sign);
+	return (result * flag);
 }

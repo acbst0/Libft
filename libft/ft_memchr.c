@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:41:57 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/14 12:28:45 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/18 11:23:28 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *ptr, int c, size_t n)
 
 	a = 0;
 	str = (char *)ptr;
-	while (a < n && str[a] != '\0')
+	while (a < n)
 	{
 		if (str[a] == c)
 		{
