@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:28:27 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/17 14:00:03 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:45:50 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_isdigit(int a);
 int		ft_isalnum(char a);
 int		ft_isascii(int i);
 int		ft_isprint(int a);
-int		ft_strlen(const char *a);
+size_t	ft_strlen(const char *a);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
