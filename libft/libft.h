@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:28:27 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/19 10:45:50 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:18:42 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stddef.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int i);
 int		ft_isdigit(int a);

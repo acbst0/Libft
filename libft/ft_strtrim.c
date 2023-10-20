@@ -6,30 +6,34 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:17:31 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/16 13:01:38 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:59:33 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_isset(char c, const char *set)
+{
+	while (*set)
+		if (c == *set++)
+			return (1);
+	return (0);
+}
+
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	a;
-	size_t	b;
-	char	*r;
+	char	*ret;
+	char	*start;
+	char	*end;
 
-	r = 0;
-	if (s1 != 0 && set != 0)
-	{
-		a = 0;
-		b = ft_strlen(s1);
-		while (s1[a] && ft_strchr(set, s1[a]))
-			a++;
-		while (s1[b - 1] && ft_strchr(set, s1[b - 1]) && b > a)
-			b--;
-		r = (char *)malloc(sizeof(char) * (b - a + 1));
-		if (r)
-			ft_strlcpy(r, &s1[a], b - a + 1);
-	}
-	return (r);
+	if (!s1 || !set)
+		return (0);
+	start = (char *)s1;
+	end = start + ft_strlen(s1);
+	while (*start && ft_isset(*start, set))
+		++start;
+	while (start < end && ft_isset(*(end - 1), set))
+		--end;
+	ret = ft_substr(start, 0, end - start);
+	return (ret);
 }
