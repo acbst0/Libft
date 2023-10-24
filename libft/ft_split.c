@@ -6,70 +6,55 @@
 /*   By: abostano <abostano@student.42istanbul.com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:05:11 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/20 12:18:28 by abostano         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:44:38 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_lens(const char *s, char c, size_t n)
+static size_t	ft_toklen(const char *s, char c)
 {
-	size_t	flag;
-	size_t	a;
-	size_t	b;
-	size_t	d;
-	char	*st;
+	size_t	ret;
 
-	st = (char *)s;
-	a = 0;
-	b = 0;
-	flag = 0;
-	while (flag != n)
+	ret = 0;
+	while (*s)
 	{
-		if (st[a] == c && st[a - 1] != c && st[a + 1] != c)
-			flag++;
-		a++;
-	}
-	d = a;
-	while (st[a] && st[a] != c)
-	{
-		b++;
-		a++;
-	}
-	return ((char *)ft_substr(s, d, b));
-}
-
-static size_t	ft_len(const char *s, char c)
-{
-	size_t	a;
-	size_t	b;
-
-	a = 0;
-	b = 0;
-	while (s[a])
-	{
-		if (s[a] == c && s[a - 1] != c)
+		if (*s != c)
 		{
-			b++;
+			++ret;
+			while (*s && *s != c)
+				++s;
 		}
-		a++;
+		else
+			++s;
 	}
-	return (b + 1);
+	return (ret);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	char	**res;
-	size_t	t;
-	size_t	a;
+	char	**ret;
+	size_t	i;
+	size_t	len;
 
-	a = 0;
-	t = ft_len(s, c);
-	res = (char **)malloc(sizeof(char) * t);
-	while (a <= t)
+	if (!s)
+		return (0);
+	i = 0;
+	ret = malloc(sizeof(char *) * (ft_toklen(s, c) + 1));
+	if (!ret)
+		return (0);
+	while (*s)
 	{
-		res[a] = ft_lens(s, c, a);
-		a++;
+		if (*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i++] = ft_substr(s - len, 0, len);
+		}
+		else
+			++s;
 	}
-	return (res);
+	ret[i] = 0;
+	return (ret);
 }
