@@ -34,7 +34,8 @@ FILES	= ft_atoi.c \
 		  ft_substr.c \
 		  ft_tolower.c \
 		  ft_toupper.c \
-		  ft_lstnew.c \
+
+BONUS 	=	ft_lstnew.c \
 		  ft_lstadd_front.c \
 		  ft_lstsize.c \
 		  ft_lstlast.c \
@@ -42,12 +43,15 @@ FILES	= ft_atoi.c \
 		  ft_lstdelone.c \
 		  ft_lstclear.c \
 		  ft_lstiter.c \
+		  ft_lstmap.c \
 
 CC	= gcc
 
 CFLAGS	= -Wall -Werror -Wextra
 
-OFILES	= $(FILES:%.c=%.o)
+OFILES	= $(FILES:.c=.o)
+
+BONUS_OBJECTS = $(BONUS:.c=.o)
 
 $(NAME):
 	$(CC) $(CFLAGS) -c $(FILES)
@@ -62,5 +66,8 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(BONUS_OBJECTS)
+	ar rcs $(NAME) $(BONUS_OBJECTS)
 
 .PHONY: all, clean, fclean, re
