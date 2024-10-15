@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abostano <abostano@student.42istanbul.com  +#+  +:+       +#+        */
+/*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 11:41:57 by abostano          #+#    #+#             */
-/*   Updated: 2023/10/20 10:30:24 by abostano         ###   ########.fr       */
+/*   Created: 2023/10/14 12:49:03 by abostano          #+#    #+#             */
+/*   Updated: 2023/10/28 11:15:16 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *ptr, int c, size_t n)
+char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 {
 	size_t	a;
-	char	*str;
+	size_t	b;
 
 	a = 0;
-	str = (char *)ptr;
-	while (a < n)
+	if (*str2 == '\0')
+		return ((char *)str1);
+	while (str1[a] && a < n)
 	{
-		if ((unsigned char)str[a] == (unsigned char)c)
+		b = 0;
+		while (str1[a + b] == str2[b] && a + b < n)
 		{
-			return ((char *)str + a);
+			b++;
+			if (str2[b] == '\0')
+				return ((char *)(str1 + a));
 		}
 		a++;
 	}
-	return (NULL);
+	return (0);
 }
